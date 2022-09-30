@@ -1,8 +1,13 @@
 const express = require('express');
 const app = express();
-const port = 443;
+const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 var path = require('path');
+
+app.listen(PORT, err => {
+    if(err) throw err;
+    console.log("%c Server running", "color: green");
+});
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs')
